@@ -1,2 +1,2 @@
 # Etch-a-Sketch
-This will be a sketchpad for the browser
+This project will act as a sketchpad for the browser
