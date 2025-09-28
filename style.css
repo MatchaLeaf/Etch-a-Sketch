@@ -1,5 +1,11 @@
+body{
+    display: flex;
+    justify-self: center;
+    flex-direction: column;
+    gap: 10px;
+}
 #container{
-    background-color:#f2f2f2;
+    background-color:white;
     height: 640px;
     width: 640px;
     display: flex;
@@ -8,13 +14,16 @@
 #container > div{
     height: calc(100% / 16);
     flex: 0 0 calc(100% / 16);
-    border: 1px solid gray;
+    border: 1px solid grey;
     box-sizing: border-box;
-    display: inline-block;
     aspect-ratio: 1;
 }   
 
 button{
     padding: 10px;
-
+    gap: 10px;
+}
+#button-container > button{
+    background-color: grey;
+    
 }

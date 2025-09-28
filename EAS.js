@@ -1,24 +1,68 @@
 const container = document.querySelector("#container");
-function Draw(e){
-for(let i = 1; i <= 256; i++){
+let isHolding = false;
+let defaultColor = 'black';
+let mode = "normal";
+
+//create 3 event types that will "listen" to what the user inputs
+container.addEventListener("mousedown", () =>{ isHolding =  true; });
+container.addEventListener("mouseup", () => { isHolding = false; });
+container.addEventListener("mouseleave", () =>{ isHolding = false; })
+
+function Normal(){
+
+
+while (container.firstChild){
+    container.removeChild(container.firstChild);
+}
+
+ for(let i = 1; i <= 256; i++){
+    mode = "normal";
+    defaultColor = "black";
     const div = document.createElement("div");
     container.appendChild(div);
 
-    newDiv.addEventListener("mouseover", () => {
-        newDiv.style.backgroundColor = `black`;
-        
-        setTimeout(() => { 
-            newDiv.style.backgroundColor = `black`
-        },100);
 
+    div.addEventListener("mousemove", () => {
+        setTimeout(()=>{
+            if(isHolding){ 
+                if(mode == "normal"){
+                div.style.backgroundColor = defaultColor;
+                }else if(mode == "random"){
+                div.style.backgroundColor = RandomColors();
+                }
+            }
+        }, 50); 
     });
 
-    div.addEventListener("mouseout", () => {
-        div.style.backgroundColor = `black`;
-});
+    div.addEventListener("mousedown", () => {
+        if(mode == "normal"){
+            div.style.backgroundColor = defaultColor;
+        }else if(mode == "random"){
+            div.style.backgroundColor = RandomColors();
+        }
+    })
+}
 }
 
+function RandomColors() {
+    //Randomize values for each color from 0 to 256
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    
+    return `rgb(${r}, ${g}, ${b})`; //Returns RBG as a string 
 }
+
+function Eraser(){
+    mode = "normal";
+    defaultColor = "white";
+}
+
+function Random(){
+    mode = "random";
+    console.log(mode);
+}
+
 function AskUser(n){
     n = prompt("What Grid Size Would You Like?");
     if(n === null){
@@ -45,12 +89,31 @@ function AskUser(n){
             newDiv.style.height = `${cellSize}px`;
             // newDiv.textContent = i;
 
-            newDiv.addEventListener("mouseover", () => {
-                newDiv.style.backgroundColor = `${randomColor}`;
-                setTimeout(() => { 
-                    newDiv.style.backgroundColor = `${randomColor}`
-                },100);
-
+            //create 3 event types that will "listen" to what the user inputs
+            newDiv.addEventListener("mousedown", () =>{
+                //start drawing
+                if(isHolding){
+                    if(mode === "normal"){
+                    newDiv.style.backgroundColor = defaultColor;
+                    } else if(mode ==- "random"){
+                    newDiv.style.backgroundColor = RandomColors();
+                    }
+                }     
+            });
+            newDiv.addEventListener("mouseup", () => {
+                //Stop drawing
+                isHolding = false;
+            })
+            newDiv.addEventListener("mousemove", () => {
+                setTimeout (() => {
+                    if(isHolding){ 
+                        if(mode === "normal") {
+                            newDiv.style.backgroundColor = defaultColor;
+                        }else if(mode === "random"){
+                            newDiv.style.backgroundColor = RandomColors();
+                        }
+                    }
+                }, 100);
             });
             
         }
@@ -60,13 +123,15 @@ function AskUser(n){
     }
 }
 
-function RandomColors() {
-    //Randomize values for each color from 0 to 256
-    const r = Math.floor(Math.random() * 256);
-    const g = Math.floor(Math.random() * 256);
-    const b = Math.floor(Math.random() * 256);
-
-    return `rgb(${r}, ${g}, ${b})`; //Returns RBG as a string 
+function Clear(){
+    //first select all of the divs on the screens
+   const div = document.querySelectorAll("div");
+   //For each of those divs set the background color to white
+   div.forEach( div => div.style.backgroundColor = "white");
 }
-const randomColor = RandomColors();
-console.log(randomColor);
+
+function Pencil(){
+    mode = "normal";
+    defaultColor = "black";
+}
+Normal();
