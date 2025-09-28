@@ -1,8 +1,6 @@
-body{
-    display: flex;
-    justify-self: center;
-    flex-direction: column;
-    gap: 10px;
+.header{
+    border: 1px solid salmon;
+    text-align: center;
 }
 #container{
     background-color:white;
@@ -10,20 +8,54 @@ body{
     width: 640px;
     display: flex;
     flex-wrap: wrap;
+    border: 20px solid red;
 }
 #container > div{
     height: calc(100% / 16);
     flex: 0 0 calc(100% / 16);
-    border: 1px solid grey;
+    border: 1px solid lightgray;
     box-sizing: border-box;
     aspect-ratio: 1;
+    cursor: crosshair;
 }   
 
 button{
+    display: flex;
     padding: 10px;
     gap: 10px;
+    border: none;
+    align-items: center;
+    flex-direction: column;
+    width: auto;
 }
-#button-container > button{
-    background-color: grey;
-    
+.buttonsDE{
+    display: flex;
+    gap: 10px;
+    justify-content: space-evenly;
+    cursor: pointer;
+}
+button span{
+    margin-top: 5px;
+    font-size: 14px;
+    font-weight: bold;
+}
+img{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+}
+#button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 20px;
+}
+.buttons{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-right: 20px;
+    justify-content: flex-start;
 }

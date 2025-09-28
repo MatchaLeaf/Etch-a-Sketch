@@ -8,17 +8,37 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="header">
     <h1> Etch-A-Sketch</h1>
-    <div id="button-container">
-    <button onclick = "Normal()">Normal </button>
-    <button onclick="AskUser()">Change Grid Size</button>
-    <button onclick="Clear()">Clear</button>
-    <button onclick="Random()"> Randomize</button>
-    <button onclick = "Eraser()"> Eraser</button>
-    <button onclick = "Pencil()"> Pencil </button>
     </div>
+    <div id="button-container">
+        <div class = "buttons">
+            <div class = "buttonsDE">
+            <button onclick = "Pencil()" alt = "Eraser" name="Draw">
+
+                <img src="pencil-edit-svgrepo-com.svg">
+                    <span>Draw </span>
+
+            </button>
+
+            <button onclick = "Eraser()" alt="Eraser" name="Eraser"> 
+                <img src="eraser-svgrepo-com.svg">
+                    <span> Eraser </span>
+
+            </button>
+
+            </div>
+            <label> Change Grid Size </label>
+            <input type="text" id = "gridSizeInput" >
+            <button onclick="AskUser()">Submit</button>
+            <button onclick="Random()"> Randomize</button>
+            <button onclick = "Normal()">Reset (16x16)</button>
+            <button onclick="Clear()">Clear</button>
+
+        </div>
     <div id = "container">
 
+    </div>
     </div>
 </body>
 </html>

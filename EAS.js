@@ -63,14 +63,22 @@ function Random(){
     console.log(mode);
 }
 
-function AskUser(n){
-    n = prompt("What Grid Size Would You Like?");
+function AskUser(){
+    //To get what the user inputted inside the textbox we use the .value tag
+    const input = document.querySelector("#gridSizeInput");
+    const n = parseInt(input.value);
+
     if(n === null){
-        alert("Please Enter a number from 1 to 100");
+        alert("Please Enter a number from 8 to 100");
+        input.value = "";
+    }else if(n < 8){
+        alert("This number is too small (pick between 8 to 100)")
+        input.value = "";
     }else if(n > 100){
-        alert("Sorry this is too big");
+        alert("Sorry this number is too big (Please Enter a number between 8 to 100");
+        input.value = "";
     }else if(n <= 100){
-        
+        input.value = "";
         //First clear existing grid
         while (container.firstChild){
             container.removeChild(container.firstChild);
