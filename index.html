@@ -13,6 +13,8 @@
     </div>
     <div id="button-container">
         <div class = "buttons">
+            <label> Color Picker </label>
+            <input type="color" id="colorInput">
             <div class = "buttonsDE">
             <button onclick = "Pencil()" alt = "Eraser" name="Draw">
 
@@ -26,13 +28,21 @@
                     <span> Eraser </span>
 
             </button>
-
             </div>
-            <label> Change Grid Size </label>
-            <input type="text" id = "gridSizeInput" >
-            <button onclick="AskUser()">Submit</button>
-            <button onclick="Random()"> Randomize</button>
-            <button onclick = "Normal()">Reset (16x16)</button>
+
+            <label>Adjust Grid Size: </label>
+            <div class="gridContainer">
+            <input type="text" id = "gridSizeInput" placeholder="e.g 8 to 100" >
+            <button onclick="AskUser()">Change</button>
+            </div>
+
+            <label> Opacity </label>
+            <input type="range" id = "opacity" min = "0" value="100">
+            <label>
+                <span id = "opacityLabel"> 100</span>
+                %
+            </label>
+            <button onclick="Random()"> Random Colors </button>
             <button onclick="Clear()">Clear</button>
 
         </div>
