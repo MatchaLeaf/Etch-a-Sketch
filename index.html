@@ -6,49 +6,69 @@
     <title>Document</title>
     <script src="EAS.js" defer></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+
 </head>
 <body>
     <div class="header">
     <h1> Etch-A-Sketch</h1>
     </div>
+    <main>
     <div id="button-container">
         <div class = "buttons">
             <label> Color Picker </label>
             <input type="color" id="colorInput">
             <div class = "buttonsDE">
-            <button onclick = "Pencil()" alt = "Eraser" name="Draw">
+            <button onclick = "Pencil()" alt = "Eraser" name="Draw" id="pencilBtn">
 
                 <img src="pencil-edit-svgrepo-com.svg">
                     <span>Draw </span>
 
             </button>
 
-            <button onclick = "Eraser()" alt="Eraser" name="Eraser"> 
+            <button onclick = "Eraser()" alt="Eraser" name="Eraser" id="eraserBtn"> 
                 <img src="eraser-svgrepo-com.svg">
                     <span> Eraser </span>
 
             </button>
             </div>
 
-            <label>Adjust Grid Size: </label>
+            <div class = containerAdjust>
+                <label>Adjust Grid Size: </label>
             <div class="gridContainer">
-            <input type="text" id = "gridSizeInput" placeholder="e.g 8 to 100" >
-            <button onclick="AskUser()">Change</button>
+                <input type="text" id = "gridSizeInput" placeholder="e.g 8 to 100" >
+                <button onclick="AskUser()">Change</button>
+            </div>
             </div>
 
+            <div class="opacityBlock">
             <label> Opacity </label>
-            <input type="range" id = "opacity" min = "0" value="100">
-            <label>
-                <span id = "opacityLabel"> 100</span>
-                %
-            </label>
-            <button onclick="Random()"> Random Colors </button>
-            <button onclick="Clear()">Clear</button>
+            <div class = "opacity-wrapper">
+                <input type="range" id = "opacity" min = "0" value="100">
+               <label><span id = "opacityLabel"> 100% </span></label>
+            </div>
+            </div>
 
+
+            <div class="randClear">
+            <button onclick="Random()" id="randomBtn"> Random Colors </button>
+            <button onclick="Clear()" id ="clearBtn">Clear</button>
+            </div>
         </div>
+        <!-- Grid Containers -->
     <div id = "container">
 
     </div>
     </div>
+    </main>
+
+    <footer>
+        <p> Made by © MatchaLeaf </p>
+        <img src = "github-mark-white.svg">
+
+    </footer>
 </body>
 </html>

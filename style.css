@@ -1,6 +1,16 @@
+html, body{
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+main{
+    flex: 1;
+}
 .header{
-    border: 1px solid salmon;
     text-align: center;
+    font-size: large;
+    font-family: 'Monsterrat', sans-serif;
 }
 #container{
     background-color:white;
@@ -8,8 +18,9 @@
     width: 640px;
     display: flex;
     flex-wrap: wrap;
-    border: 20px solid red;
+    border: 1px solid grey;
     aspect-ratio: 1;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 #container > div{
     height: calc(100% / 16);
@@ -20,7 +31,9 @@
     aspect-ratio: 1;
 
 }   
-
+#container > div:hover{
+    background-color: rgb(221, 221, 221);
+}
 button{
     display: flex;
     padding: 10px;
@@ -29,7 +42,26 @@ button{
     align-items: center;
     flex-direction: column;
     width: 100px;
+    font-family: 'Alan Sans', sans-serif;
+    transition: 0.1s all;
+    border-radius: 20%;
+
 }
+
+button:hover{
+    background-color:#6e6e6e;
+}
+
+button.selected{
+    background-color: rgb(117, 117, 117);
+    color: white;
+}
+button:active{
+    background-color: rgb(117, 117, 117);
+    color: white;
+    transform: scale(0.97);
+}
+
 .buttonsDE{
     display: flex;
     gap: 10px;
@@ -39,7 +71,9 @@ button{
 button span{
     margin-top: 5px;
     font-size: 14px;
-    font-weight: bold;
+    font-weight: light;
+    font-family: 'Alan Sans', sans-serif;
+
 }
 img{
     width: 30px;
@@ -59,10 +93,12 @@ img{
     flex-direction: column;
     gap: 10px;
     margin-right: 20px;
-    justify-content: flex-start;
+    justify-content: space-between;
     text-align: center;
     align-items: center;
-    background-color: yellow;
+    border: 1px solid black;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 #colorInput{
@@ -91,4 +127,77 @@ img{
 #gridSizeInput{
     width: 100px;
     font-size: 15px;
+}
+label{
+    font-family: "Alan Sans", sans-serif;
+    font-size: 20px;
+}
+.containerAdjust{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.containerAdjust label{
+    font-size: 17px;
+}
+.containerOpacity{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    display: flex;
+}
+
+#opacity{
+    -webkit-appearance: none;
+    width: 100%;
+    height: 6px;
+    background-color:lightgray ;
+    border-radius: 5px;
+    outline: none;
+    display: flex;
+    margin-top: 7px;
+    box-sizing: border-box;
+}
+.randClear{
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+}
+.randClear button{
+    width: 200px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10%;
+}
+.opacityBlock{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    margin-bottom: 20px;
+}
+.opacity-wrapper{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.opacity-wrapper label{
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+}
+
+
+footer{
+    height: 20px;
+    display: flex;
+    background-color:#2e2e2e;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+    font-family: 'Alan Sans', sans-serif;
 }

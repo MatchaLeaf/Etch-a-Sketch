@@ -23,7 +23,7 @@ colorPicker.addEventListener("change", ()  => {
 //listen for the change with the slider
 opacity.addEventListener("input", () => {
     const value = opacitySlider.value;
-    opacityLabel.textContent = value;
+    opacityLabel.textContent = value + "%";
     defaultOpacity = opacitySlider.value;
 }
 )
@@ -83,17 +83,20 @@ function RandomColors() {
     const r = Math.floor(Math.random() * 256);
     const g = Math.floor(Math.random() * 256);
     const b = Math.floor(Math.random() * 256);
-    
+
     return `${r}, ${g}, ${b}`; //Returns RBG as a string 
 }
 
 function Eraser(){
     mode = "normal";
     defaultColor = "#FFFFFF";
+    setActiveButtons("eraserBtn");
 }
 
 function Random(){
     mode = "random";
+    setActiveButtons("randomBtn");
+
 }
 
 function AskUser(){
@@ -184,8 +187,16 @@ function Clear(){
    gridCell.forEach( cells => cells.style.backgroundColor = "white");
 }
 
+
+function setActiveButtons(activeId){
+    document.querySelectorAll("button").forEach(btn => btn.classList.remove("selected"));
+    document.getElementById(activeId).classList.add("selected")
+}
+
 function Pencil(){
     mode = "normal";
     defaultColor = colorPicker.value;
+    setActiveButtons("pencilBtn");
 }
+
 Normal();
